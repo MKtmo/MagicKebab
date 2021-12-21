@@ -17,32 +17,32 @@ function Etape3() {
   const history = useHistory();
   const [display, setDisplay] = useState(false);
   const [mySalad, setMySalad] = useState([]);
-  console.log(location.state)
+  console.log(location.state);
   const { Salade } = fakedata;
-  const choix = Salade.map((kabab) => {
+  const choix = Salade.map((kebab) => {
     return (
       <ImageCard
-        key={kabab.name}
+        key={kebab.name}
         onClick={() => {
-          document.getElementById(kabab.name).style.display = "block";
-             setMySalad ([...mySalad, kabab]);
+          document.getElementById(kebab.name).style.display = "block";
+          setMySalad([...mySalad, kebab]);
           setDisplay(true);
         }}
       >
-        <IconeEWithSelect id={kabab.name}>
+        <IconeEWithSelect id={kebab.name}>
           <FontAwesomeIcon icon={faCheckCircle} />
         </IconeEWithSelect>
-        <img src={kabab.image.default} alt="pain" />
-        <StyledSimpleText>{kabab.name}</StyledSimpleText>
+        <img src={kebab.image.default} alt="pain" />
+        <StyledSimpleText>{kebab.name}</StyledSimpleText>
       </ImageCard>
     );
   });
   const suivant = (
     <ButtonST
       onClick={() => {
-        const myKabab = [...location.state, {Salades:mySalad}];
-        console.log(myKabab)
-        history.push("/etape4", myKabab);
+        const mykebab = [...location.state, { Salades: mySalad }];
+        console.log(mykebab);
+        history.push("/etape4", mykebab);
       }}
     >
       Continuer
@@ -52,7 +52,7 @@ function Etape3() {
     <div>
       <StyledCounter>Salade,Tomate,Oignons ?</StyledCounter>
       <ContinerStyle>{choix}</ContinerStyle>
-      {display? suivant:null}
+      {display ? suivant : null}
     </div>
   );
 }

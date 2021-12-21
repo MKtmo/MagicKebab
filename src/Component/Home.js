@@ -18,44 +18,44 @@ import {
 function Home(params) {
   const history = useHistory();
   const { Pain } = fakedata;
-  const val = localStorage.getItem("listeKabab");
+  const val = localStorage.getItem("listekebab");
   const [pan, setPan] = useState(JSON.parse(val));
   var prix = 0;
 
-  const choix = Pain.map((kabab) => {
+  const choix = Pain.map((kebab) => {
     return (
       <ImageCard
-        key={kabab.name}
+        key={kebab.name}
         onClick={() => {
-          const myKabab = [{ Pain: kabab }];
-          history.push("/etape2", myKabab);
+          const mykebab = [{ Pain: kebab }];
+          history.push("/etape2", mykebab);
         }}
       >
-        <img src={kabab.image.default} alt="pain" />
-        <StyledSimpleText>{kabab.name}</StyledSimpleText>
+        <img src={kebab.image.default} alt="pain" />
+        <StyledSimpleText>{kebab.name}</StyledSimpleText>
       </ImageCard>
     );
   });
   if (pan) {
-    var panier = pan.map((element,k) => {
+    var panier = pan.map((element, k) => {
       prix = prix + 11;
       const pain = element[0].Pain.name;
       const viande = element[1].Viande.name;
-      const salad = element[2].Salades.map((kabab) => kabab.name + ",");
-      const sauce = element[3].Souces.map((kabab) => kabab.name + " ");
+      const salad = element[2].Salades.map((kebab) => kebab.name + ",");
+      const sauce = element[3].Souces.map((kebab) => kebab.name + " ");
       return (
-        <CommendDetaills key = {element[0].Pain.prix}>
+        <CommendDetaills key={element[0].Pain.prix}>
           {pain},{viande},{salad},{sauce}
           <FontAwesomeIcon
             icon={faTrash}
             onClick={() => {
-              const listeKabab = pan.filter((elem) => {
+              const listekebab = pan.filter((elem) => {
                 return elem[0] !== element[0];
               });
-              setPan(listeKabab);
-              console.log(listeKabab);
-              localStorage.removeItem("listeKabab");
-              localStorage.setItem("listeKabab", JSON.stringify(listeKabab));
+              setPan(listekebab);
+              console.log(listekebab);
+              localStorage.removeItem("listekebab");
+              localStorage.setItem("listekebab", JSON.stringify(listekebab));
             }}
           />
         </CommendDetaills>

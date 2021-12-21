@@ -16,35 +16,35 @@ function Etape4() {
   const location = useLocation();
   const history = useHistory();
   const [display, setDisplay] = useState(false);
-  var [sou,setSou] = useState ([]);
+  var [sou, setSou] = useState([]);
   const { Sauces } = fakedata;
-  const choix = Sauces.map((kabab) => {
+  const choix = Sauces.map((kebab) => {
     return (
       <ImageCard
-        key={kabab.name}
+        key={kebab.name}
         onClick={() => {
-            console.log(sou.length)
-            if(sou.length<2){
-                document.getElementById(kabab.name).style.display = "block";
-                setSou([...sou,kabab])
-               setDisplay(true);
-            }
+          console.log(sou.length);
+          if (sou.length < 2) {
+            document.getElementById(kebab.name).style.display = "block";
+            setSou([...sou, kebab]);
+            setDisplay(true);
+          }
         }}
       >
-        <IconeEWithSelect id={kabab.name}>
+        <IconeEWithSelect id={kebab.name}>
           <FontAwesomeIcon icon={faCheckCircle} />
         </IconeEWithSelect>
-        <img src={kabab.image.default} alt="pain" />
-        <StyledSimpleText>{kabab.name}</StyledSimpleText>
+        <img src={kebab.image.default} alt="pain" />
+        <StyledSimpleText>{kebab.name}</StyledSimpleText>
       </ImageCard>
     );
   });
   const suivant = (
     <ButtonST
       onClick={() => {
-        const myKabab = [...location.state,{Souces: sou}];
-        console.log(myKabab);
-        history.push("/recapitulatif",myKabab);
+        const mykebab = [...location.state, { Souces: sou }];
+        console.log(mykebab);
+        history.push("/recapitulatif", mykebab);
       }}
     >
       Continuer

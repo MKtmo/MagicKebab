@@ -13,17 +13,17 @@ function Etape2() {
   const history = useHistory();
   console.log(location);
   const { Viande } = fakedata;
-  const choix = Viande.map((kabab) => {
+  const choix = Viande.map((kebab) => {
     return (
       <ImageCard
-        key={kabab.name}
+        key={kebab.name}
         onClick={() => {
-          const myKabab = [...location.state, { Viande: kabab }];
-          history.push("/etape3", myKabab);
+          const mykebab = [...location.state, { Viande: kebab }];
+          history.push("/etape3", mykebab);
         }}
       >
-        <img src={kabab.image.default} alt="pain" />
-        <StyledSimpleText>{kabab.name}</StyledSimpleText>
+        <img src={kebab.image.default} alt="pain" />
+        <StyledSimpleText>{kebab.name}</StyledSimpleText>
       </ImageCard>
     );
   });

@@ -25,41 +25,38 @@ function Recapitulatif() {
       <StyledSimpleText>{data[1].Viande.name}</StyledSimpleText>
     </ImageCard>
   );
-  const choix = data[2].Salades.map((kabab) => {
-    console.log(kabab.name);
+  const choix = data[2].Salades.map((kebab) => {
+    console.log(kebab.name);
     return (
-      <ImageCard key={kabab.name}>
-        <img src={kabab.image.default} alt="pain" />
-        <StyledSimpleText>{kabab.name}</StyledSimpleText>
+      <ImageCard key={kebab.name}>
+        <img src={kebab.image.default} alt="pain" />
+        <StyledSimpleText>{kebab.name}</StyledSimpleText>
       </ImageCard>
     );
   });
-  const choix2 = data[3].Souces.map((kabab) => {
-    console.log(kabab.name);
+  const choix2 = data[3].Souces.map((kebab) => {
+    console.log(kebab.name);
     return (
-      <ImageCard key={kabab.name}>
-        <img src={kabab.image.default} alt="pain" />
-        <StyledSimpleText>{kabab.name}</StyledSimpleText>
+      <ImageCard key={kebab.name}>
+        <img src={kebab.image.default} alt="pain" />
+        <StyledSimpleText>{kebab.name}</StyledSimpleText>
       </ImageCard>
     );
   });
   const suivant = (
     <ButtonST
       onClick={() => {
-        const myKabab = [...location.state];
-        const listOfKababs = JSON.parse(localStorage.getItem("listeKabab"))
-        if(listOfKababs){
-            localStorage.setItem(
-                "listeKabab",
-                JSON.stringify([...listOfKababs,myKabab])
-              );}else {localStorage.setItem(
-                "listeKabab",
-                JSON.stringify([myKabab])
-              );}
-              history.push("/", myKabab);
-        
-
-        
+        const mykebab = [...location.state];
+        const listOfkebabs = JSON.parse(localStorage.getItem("listekebab"));
+        if (listOfkebabs) {
+          localStorage.setItem(
+            "listekebab",
+            JSON.stringify([...listOfkebabs, mykebab])
+          );
+        } else {
+          localStorage.setItem("listekebab", JSON.stringify([mykebab]));
+        }
+        history.push("/", mykebab);
       }}
     >
       Commander
